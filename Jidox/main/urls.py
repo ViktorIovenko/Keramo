@@ -14,31 +14,19 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from django.contrib import admin
+
 from django.urls import path, include
-from jidox.view import index_view
+
 from main import views
 
+app_name = 'main'
+
 urlpatterns = [
-    path("admin/", admin.site.urls),
 
-    path('', views.index, name= "main"),
-    path('', include('main.urls')),
-    path('shop/', include('goods.urls')),
-
-    # Dashboard
-    path("adminpanel", view=index_view, name="index"),
-
-    # App
-    path("apps/", include("apps.urls")),
-
-    # Custom
-    path("custom/", include("custom.urls")),
-    # Layouts
-    path("layouts/", include("layouts.urls")),
-
-    # Components
-    path("components/", include("components.urls")),
-
-    path("accounts/", include("allauth.urls")),
+    path('about/', views.about, name= "about"),
+    path('contact/', views.contact, name="contact"),
+    path('not-found.html/', views.notfound, name="not-found.html"),
 ]
+
+
+

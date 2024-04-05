@@ -1,7 +1,7 @@
 /* Preloader */
 
 .handle-preloader{
-	background-color:#40E0D0;
+	background-color:#ADD8E6;
 }
 
 .handle-preloader {
@@ -83,7 +83,7 @@
 .handle-preloader .animation-preloader .txt-loading .letters-loading:nth-child(7):before { animation-delay: 1.2s;}
 .handle-preloader .animation-preloader .txt-loading .letters-loading:nth-child(8):before { animation-delay: 1.4s;}
 .handle-preloader .loader-section {
-  background-color: #ffffff;
+  background-color: #ADD8E6;
   height: 100%;
   position: fixed;
   top: 0;
