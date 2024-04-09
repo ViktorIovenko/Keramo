@@ -69,7 +69,7 @@
 						  </div>
 
 						<!-- Logo -->
-						<div class="logo"><a href="index.html"><img src="{% static 'images\imagessait\logo.png' %}" alt="" title=""></a></div>
+						<div class="logo"><a href="{% url 'main' %}"><img src="{% static 'images\imagessait\logo.png' %}" alt="" title=""></a></div>
 					</div>
 					<div class="nav-outer clearfix">
 
@@ -87,9 +87,10 @@
 								<ul class="navigation clearfix">
 									<li><a href="{% url 'main' %}">Home</a></li>
 									<li><a href="{% url 'main:about' %}">About</a></li>
-									<li class="dropdown"><a href="#">Shop</a>
+									<li><a href="{% url 'goods:shop' %}">Shop</a></li>
+									<li class="dropdown"><a href="{% url 'goods:shop' %}">Shop</a>
 										<ul>
-											<li><a href="shop.html">Our Products</a></li>
+											<li><a href="{% url 'goods:shop' %}">Our Products</a></li>
 											<li><a href="shop-detail.html">Product Single</a></li>
 											<li><a href="cart.html">Shoping Cart</a></li>
 											<li><a href="checkout.html">CheckOut</a></li>

@@ -53,7 +53,7 @@
 					
 					<div class="shops-outer">
 						<div class="row clearfix">
-							
+							{% for product  in goods %}
 							<!-- Shop Item -->
 							<div class="shop-item col-lg-4 col-md-4 col-sm-12">
 								<div class="inner-box">
@@ -88,7 +88,7 @@
 									</div>
 								</div>
 							</div>
-							
+							{% endfor %}
 							<!-- Shop Item -->
 							<div class="shop-item col-lg-4 col-md-4 col-sm-12">
 								<div class="inner-box">
@@ -228,7 +228,6 @@
 									</div>
 								</div>
 							</div>
-							
 							<!-- Shop Item -->
 							<div class="shop-item col-lg-4 col-md-4 col-sm-12">
 								<div class="inner-box">
@@ -263,7 +262,7 @@
 									</div>
 								</div>
 							</div>
-							
+
 							<!-- Shop Item -->
 							<div class="shop-item col-lg-4 col-md-4 col-sm-12">
 								<div class="inner-box">
@@ -403,7 +402,7 @@
 									</div>
 								</div>
 							</div>
-							
+
 							<!-- Shop Item -->
 							<div class="shop-item col-lg-4 col-md-4 col-sm-12">
 								<div class="inner-box">
@@ -503,6 +502,9 @@
 								</div>
 								<!-- Category List -->
 								<ul class="category-list">
+									{% for category in categories %}
+									<li><a href="#">{{category.name}}</a></li>
+									{% endfor %}
 									<li><a href="#">Accessories <span>(8)</span></a></li>
 									<li><a href="#">Air Filter <span>(5)</span></a></li>
 									<li><a href="#">Body Engine <span>(5)</span></a></li>
