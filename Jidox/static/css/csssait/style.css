@@ -1,3 +1,5 @@
+{% load static %}
+
 /* Bloxic Furniture Business HTML Template
 
 
@@ -9,23 +11,6 @@
 	font-family: 'Space Grotesk', sans-serif;
 */
 
-
-@import url('{% static "css/csssait/global.css" %}');
-@import url('{% static "css/csssait/header.css" %}');
-@import url('{% static "css/csssait/footer.css" %}');
-@import url('{% static "css/csssait/icofont.css" %}');
-@import url('{% static "css/csssait/font-awesome.css" %}');
-@import url('{% static "css/csssait/flaticon.css" %}');
-@import url('{% static "css/csssait/animate.css" %}');
-@import url('{% static "css/csssait/owl.css" %}');
-@import url('{% static "css/csssait/swiper.css" %}');
-@import url('{% static "css/csssait/jquery-ui.css" %}');
-@import url('{% static "css/csssait/preloader.css" %}');
-@import url('{% static "css/csssait/custom-animate.css" %}');
-@import url('{% static "css/csssait/magnific-popup.css" %}');
-@import url('{% static "css/csssait/jquery.bootstrap-touchspin.css" %}');
-@import url('{% static "css/csssait/odometer-theme-default.css" %}');
-@import url('{% static "css/csssait/jquery.mCustomScrollbar.min.css" %}');
 
 
 /*** 
@@ -109,7 +94,7 @@
 	top:0px;
 	right:0px;
 	bottom:0px;
-	background:url(../images/main-slider/sale-vector.png) no-repeat;
+	background:('{% static "images/imagessait/main-slider/sale-vector.png" %}') no-repeat;
 }
 
 .main-slider .sale-box span{
@@ -850,7 +835,7 @@
 	opacity:0;
 	width:74px;
 	height:32px;
-	background:url(../images/icons/price-curve.png) no-repeat;
+	background:('{% static "images/imagessait/icons/price-curve.png" %}') no-repeat;
 }
 
 .shop-item .inner-box:hover .price:before{
@@ -1197,7 +1182,7 @@
 	top:0px;
 	right:0px;
 	bottom:0px;
-	background:url(../images/icons/sale-vector.png) no-repeat;
+	background:('{% static "images/imagessait/icons/sale-vector.png" %}') no-repeat;
 }
 
 .sale-block .sale-box span{
@@ -1225,7 +1210,7 @@
 }
 
 .sale-block.style-two .sale-box:before{
-	background: url(../images/icons/sale-vector-1.png) no-repeat;
+	background: ('{% static "images/imagessait/icons/sale-vector-1.png" %}') no-repeat;
 }
 
 /*** 
@@ -1421,7 +1406,7 @@
 	top:0px;
 	right:0px;
 	bottom:0px;
-	background:url(../images/icons/counter-vector.png);
+	background:url('{% static "images/imagessait/icons/counter-vector.png" %}');
 	background-position:center center;
 	background-repeat:no-repeat;
 }
@@ -1608,7 +1593,7 @@
 	right:0px;
 	bottom:0px;
 	z-index:-1;
-	background:url(../images/icons/price-tag.png) no-repeat;
+	background:url('{% static "images/imagessait/icons/price-tag.png" %}') no-repeat;
 }
 
 .collection-section .price-tag sup{
@@ -2209,7 +2194,7 @@
 	bottom:0px;
 	height:2px;
 	z-index:-1;
-	background:url(../images/icons/vector-4.png) no-repeat;
+	background:url('{% static "images/imagessait/icons/vector-4.png" %}')  no-repeat;
 }
 
 .testimonial-block .author-info span:after{
@@ -5180,7 +5165,7 @@
 	bottom:0px;
 	height:2px;
 	z-index:-1;
-	background:url(../images/icons/vector-4.png) no-repeat;
+	background:url('{% static "images/imagessait/icons/vector-4.png" %}') no-repeat;
 }
 
 .testimonial-section-three .author-info span:after{
@@ -7617,7 +7602,7 @@
 	-ms-appearance:none;
 	-moz-appearance:none;
 	-o-appearance:none;
-	background:var(--white-color) url(../images/icons/icon-select.png) right center no-repeat;
+	background:var(--white-color) ('{% static "images/imagessait/icons/icon-select.png" %}') right center no-repeat;
 	cursor:pointer;
 }
 

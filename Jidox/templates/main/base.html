@@ -28,6 +28,7 @@
 <link href="{% static 'css/csssait/jquery.bootstrap-touchspin.css' %}" rel="stylesheet">
 <link href="{% static 'css/csssait/odometer-theme-default.css' %}" rel="stylesheet">
 <link href="{% static 'css/csssait/jquery.mCustomScrollbar.min.css' %}" rel="stylesheet">
+<link href="{% static 'css/csssait/swiper.css' %}" rel="stylesheet">
 
 
 
@@ -166,7 +167,7 @@
 				<div class="d-flex justify-content-between align-items-center">
 					<!-- Logo -->
 					<div class="logo">
-						<a href="index.html" title=""><img src="{% static 'images/imagessait/logo-small.png' %}" alt="" title=""></a>
+						<a href="{% url 'main' %}" title=""><img src="{% static 'images/imagessait/logo-small.png' %}" alt="" title=""></a>
 					</div>
 
 					<!-- Right Col -->
@@ -191,7 +192,7 @@
             <div class="menu-backdrop"></div>
             <div class="close-btn"><span class="icon flaticon-multiply"></span></div>
             <nav class="menu-box">
-                <div class="nav-logo"><a href="index.html"><img src="{% static 'images/imagessait/mobile-logo.png' %}" alt="" title=""></a></div>
+                <div class="nav-logo"><a href="{% url 'main' %}"><img src="{% static 'images/imagessait/mobile-logo.png' %}" alt="" title=""></a></div>
 				<!-- Search -->
 				<div class="search-box">
 					<form method="post" action="contact.html">
@@ -220,7 +221,7 @@
 					<div class="sidebar-info-contents">
 						<div class="content-inner">
 							<div class="logo">
-								<a href="index.html"><img src="{% static 'images/imagessait/logo.png' %}" alt="" title=""></a>
+								<a href="{% url 'main' %}"><img src="{% static 'images/imagessait/logo.png' %}" alt="" title=""></a>
 							</div>
 							<div class="content-box">
 
@@ -364,7 +365,7 @@
                             <div class="footer-column col-lg-7 col-md-6 col-sm-12">
                                 <div class="footer-widget links-widget">
 									<!-- Logo -->
-									<div class="logo"><a href="index.html"><img src="{% static 'images/imagessait/images/logo.png' %}" alt="" title=""></a></div>
+									<div class="logo"><a href="{% url 'main' %}"><img src="{% static 'images/imagessait/logo.png' %}" alt="" title=""></a></div>
 									<div class="text">Netherland, Hazenweg 121, 7556 BM Hengelo </div>
 									<ul class="contact-list">
 										<li><span class="icon flaticon-map"></span>Hazenweg 121, 7556 BM Hengelok</li>
@@ -463,13 +464,13 @@
 
 {% block javascript %}
     <!-- Ваши скрипты здесь -->
-    <script src="{% static 'js/jssait/jquery.js' %}"></script>
-<script src="{% static 'js/jssait/popper.min.js' %}"></script>
-<script src="{% static 'js/jssait/bootstrap.min.js' %}"></script>
+<script src="{% static 'js/jssait/jquery.js' %}" ></script>
+<script src="{% static 'js/jssait/popper.min.js' %}" ></script>
+<script src="{% static 'js/jssait/bootstrap.min.js' %}" ></script>
 <script src="{% static 'js/jssait/magnific-popup.min.js' %}"></script>
-<script src="{% static 'js/jssait/jquery.mCustomScrollbar.concat.min.js' %}"></script>
-<script src="{% static 'js/jssait/appear.js' %}"></script>
-<script src="{% static 'js/jssait/parallax.min.js' %}"></script>
+<script src="{% static 'js/jssait/jquery.mCustomScrollbar.concat.min.js' %}" ></script>
+<script src="{% static 'js/jssait/appear.js' %}" "></script>
+<script src="{% static 'js/jssait/parallax.min.js' %}" ></script>
 <script src="{% static 'js/jssait/tilt.jquery.min.js' %}"></script>
 <script src="{% static 'js/jssait/jquery.paroller.min.js' %}"></script>
 <script src="{% static 'js/jssait/owl.js' %}"></script>
@@ -483,7 +484,7 @@
 <script src="{% static 'js/jssait/nav-tool.js' %}"></script>
 <script src="{% static 'js/jssait/jquery-ui.js' %}"></script>
 <script src="{% static 'js/jssait/script.js' %}"></script>
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 <!--[if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script><![endif]-->
 <!--[if lt IE 9]><script src="{% static 'js/jssait/respond.js' %}"></script><![endif]-->

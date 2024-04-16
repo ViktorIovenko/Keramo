@@ -1533,7 +1533,7 @@
 	top: 100%;
 	width: 100%;
 	height: 560px;
-	background-image: url(../images/icons/waves-shape.png);
+	background-image: ('{% static "images/imagessait/icons/waves-shape.png" %}');
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: cover;
@@ -1879,3 +1879,4 @@
 .close-side-widget:hover{
 	color:var(--main-color);
 }
+

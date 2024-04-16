@@ -40,6 +40,9 @@ DJANGO_APPS = [
     "django.contrib.humanize", # Handy template tags
     "django.contrib.admin",
     "django.forms",
+
+    "debug_toolbar",
+
     "main",
     "goods",
     "blog",
@@ -80,6 +83,8 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+
+    "debug_toolbar.middleware.DebugToolbarMiddleware",
 ]
 
 ROOT_URLCONF = "jidox.urls"
@@ -153,6 +158,10 @@ STATIC_URL = "/static/"
 
 STATICFILES_DIRS = [BASE_DIR / "static"]
 
+MEDIA_URL = 'media/'
+
+MEDIA_ROOT = BASE_DIR / 'media'
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
@@ -180,3 +189,8 @@ SITE_ID = 1
 
 # Provider specific settings
 SOCIALACCOUNT_PROVIDERS = {}
+
+# для дополнительного приложения "debug_toolbar"
+INTERNAL_IPS = [
+    "127.0.0.1",
+    ]

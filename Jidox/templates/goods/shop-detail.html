@@ -1,10 +1,9 @@
 {% extends "main/base.html" %}
 {% load static %}
+{% load goods_tags %}
 {% block title %}{{title}}{% endblock title %}
-
-
-
 {% block content %}
+
 	
 	<!-- Page Title -->
     <section class="page-title">
@@ -33,10 +32,10 @@
                                 <div class="swiper-container content-carousel">
                                     <div class="swiper-wrapper">
                                         <div class="swiper-slide">
-                                            <figure class="image"><a href="images/resource/products/35.png" class="lightbox-image"><img src="images/resource/products/35.png" alt=""></a></figure>
+                                            <figure class="image"><a href="{{product.image1.url}}" class="lightbox-image"><img src="{{product.image1.url}}" alt=""></a></figure>
                                         </div>
                                         <div class="swiper-slide">
-                                            <figure class="image"><a href="images/resource/products/35.png" class="lightbox-image"><img src="images/resource/products/35.png" alt=""></a></figure>
+                                            <figure class="image"><a href="{{product.image2.url}" class="lightbox-image"><img src="{{product.image2.url}" alt=""></a></figure>
                                         </div>
                                         <div class="swiper-slide">
                                             <figure class="image"><a href="images/resource/products/35.png" class="lightbox-image"><img src="images/resource/products/35.png" alt=""></a></figure>
@@ -53,7 +52,7 @@
                                 <div class="swiper-container thumbs-carousel">
                                     <div class="swiper-wrapper">
                                         <div class="swiper-slide">
-                                            <figure class="thumb"><img src="images/resource/products/36.png" alt=""></figure>
+                                            <figure class="thumb"><img src="{{product.image1.url}}" alt=""></figure>
                                         </div>
                                         <div class="swiper-slide">
                                             <figure class="thumb"><img src="images/resource/products/37.png" alt=""></figure>
@@ -72,7 +71,7 @@
 					<!-- Content Column -->
 					<div class="content-column col-lg-6 col-md-12 col-sm-12">
 						<div class="inner-column">
-							<h3>Accesories Lather Shoes</h3>
+							<h3>{{product.model}} {{product.line}} </h3>
 							<!-- Rating -->
 							<div class="rating">
 								<span class="fa fa-star"></span>
@@ -83,8 +82,12 @@
 								<i>(4 customer review)</i>
 							</div>
 							<!-- Price -->
-							<div class="price">$16.00 <span>$32.00</span> <i>-34%</i></div>
-							<div class="text">Rorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.</div>
+							{% if product.discount_percentage %}
+							<div class="price">€{{product.sell_price}} <span>€{{product.price}}</span> <i>-{{product.discount_percentage}}%</i></div>
+							{% else %}
+							<div class="price">€{{product.price}}</span></div>
+							{% endif %}
+							<div class="text">{{product.short_description}}</div>
 							<div class="d-flex flex-wrap">
 								<!-- Model -->
 								<div class="model">
@@ -92,19 +95,17 @@
 								</div>
 								<!-- Select Size -->
 								<div class="select-size-box clearfix">
-									<div class="select-box"><input type="radio" name="payment-group" id="radio-one" checked><label for="radio-one">tyk</label></div>
+									<div class="select-box"><input type="radio" name="payment-group" id="radio-one" checked><label for="radio-one">{{product.model}}</label></div>
 									<div class="select-box"><input type="radio" name="payment-group" id="radio-two"><label for="radio-two">ffd2</label></div>
-									<div class="select-box"><input type="radio" name="payment-group" id="radio-three"><label for="radio-three">23tt</label></div>
-									<div class="select-box"><input type="radio" name="payment-group" id="radio-four"><label for="radio-four">r454</label></div>
-									<div class="select-box"><input type="radio" name="payment-group" id="radio-five"><label for="radio-five">45hy</label></div>
+
 								</div>
 							</div>
 							
 							<!-- Categories -->
-							<div class="categories"><span>Categories :</span> All, Featured, Medical, Covid-19 Mask</div>
+							<div class="categories"><span>Categories :</span> {{product.type}}</div>
 							
 							<!-- Tags -->
-							<div class="categories"><span>Tags :</span> Black, Brown, Red, Shoes, £0.00 - £150.00</div>
+							<div class="categories"><span>Tags :</span>{{product.tag}}</div>
 							
 							<!-- Social Box -->
 							<ul class="social-box">
@@ -449,6 +450,7 @@
 		</div>
 	</section>
 	<!-- End Products Section Six -->
-	
+
 {% endblock content %}
-products/35.png
+
+

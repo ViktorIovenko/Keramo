@@ -17,7 +17,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from jidox.view import index_view
+from django.conf.urls.static import static
 from main import views
+from jidox import settings
+
 
 urlpatterns = [
     path("admin/", admin.site.urls),
@@ -42,3 +45,9 @@ urlpatterns = [
 
     path("accounts/", include("allauth.urls")),
 ]
+
+if settings.DEBUG:
+    urlpatterns += [
+        path("__debug__/", include("debug_toolbar.urls")),
+    ]
+    urlpatterns +=static(settings.MEDIA_URL,document_root = settings.MEDIA_ROOT)

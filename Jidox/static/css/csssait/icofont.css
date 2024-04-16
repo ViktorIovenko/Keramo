@@ -1,4 +1,6 @@
-/*! 
+{% load static %}
+@charset "UTF-8";
+/*!
 * @package IcoFont 
 * @version 1.0.1 
 * @author IcoFont https://icofont.com 
@@ -12,8 +14,11 @@
   font-family: "IcoFont";
 font-weight: normal;
 font-style: "Regular";
-src: url("../fonts/icofont.woff2") format("woff2"),
-url("../fonts/icofont.woff") format("woff");
+src:  url("{% static 'fonts/icofont.woff2' %}") format("woff2"),
+      url("{% static 'fonts/icofont.woff' %}") format("woff");
+
+      url("{% static '/static/fonts/icofont.woff2' %}") format("woff2"),
+      url("{% static '/static/fonts/icofont.woff' ) format("woff");
 }
 
 [class^="icofont-"], [class*=" icofont-"]

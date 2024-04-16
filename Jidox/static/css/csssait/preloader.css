@@ -83,7 +83,7 @@
 .handle-preloader .animation-preloader .txt-loading .letters-loading:nth-child(7):before { animation-delay: 1.2s;}
 .handle-preloader .animation-preloader .txt-loading .letters-loading:nth-child(8):before { animation-delay: 1.4s;}
 .handle-preloader .loader-section {
-  background-color: #ADD8E6;
+  background-color: #66b3ff;
   height: 100%;
   position: fixed;
   top: 0;
@@ -100,11 +100,11 @@
 }
 
 .handle-preloader .animation-preloader .txt-loading .letters-loading:before{
-  color: #ffffff;
+  color: #004d99;
 }
 
 .handle-preloader .animation-preloader .spinner{
-  border: 3px solid #ffffff;
+  border: 3px solid #004d99;
   border-top-color: rgba(255, 255, 255, 0.5); 
 }
 

@@ -1,5 +1,6 @@
 {% extends "main/base.html" %}
 {% load static %}
+{% load goods_tags %}
 {% block title %}{{title}}{% endblock title %}
 {% block content %}
 
@@ -53,17 +54,20 @@
 					
 					<div class="shops-outer">
 						<div class="row clearfix">
-							{% for product  in goods %}
+
+							{% for product in goods %}
 							<!-- Shop Item -->
 							<div class="shop-item col-lg-4 col-md-4 col-sm-12">
 								<div class="inner-box">
 									<div class="image">
-										<a href="shop-detail.html"><img src="{% static 'images/imagessait/resource/products/1.png' %}" alt="" /></a>
+										{% if product.image1 %}
+										<a href="shop-detail.html"><img src="{{product.image1.url}}" alt="{{product.model}}" /></a>
+										{% endif %}
 										<div class="options-box">
 											<ul class="option-list">
-												<li><a class="flaticon-resize" href="shop-detail.html"></a></li>
-												<li><a class="flaticon-heart" href="shop-detail.html"></a></li>
-												<li><a class="flaticon-shopping-cart-2" href="shop-detail.html"></a></li>
+												<li><a class="flaticon-resize" href=""></a></li>
+                                                <li><a class="flaticon-heart" href=""></a></li>
+												<li><a class="flaticon-shopping-cart-2" href=""></a></li>
 											</ul>
 										</div>
 									</div>
@@ -75,9 +79,13 @@
 											<span class="fa fa-star"></span>
 											<span class="light fa fa-star"></span>
 										</div>
-										<h6><a href="shop-detail.html">masks 95 percent 0.3-μm <br> particles</a></h6>
+										<h6><a href="{% url 'goods:product' product.slug %}">{{product.model}} <br> {{product.line}}</a></h6>
 										<div class="d-flex justify-content-between align-items-center">
-											<div class="price"><span>$239.52</span> $362.00</div>
+											{% if product.discount_percentage %}
+											<div class="price"><span> €{{product.price}}</span>  €{{product.sell_price}}</div>
+											{% else %}
+											<div> €{{product.price}}</div>
+											{% endif %}
 											<!-- Quantity Box -->
 											<div class="quantity-box">
 												<div class="item-quantity">
@@ -89,392 +97,9 @@
 								</div>
 							</div>
 							{% endfor %}
-							<!-- Shop Item -->
-							<div class="shop-item col-lg-4 col-md-4 col-sm-12">
-								<div class="inner-box">
-									<div class="image">
-										<a href="shop-detail.html"><img src="{% static 'images/imagessait/resource/products/2.png' %}" alt="" /></a>
-										<div class="options-box">
-											<ul class="option-list">
-												<li><a class="flaticon-resize" href="shop-detail.html"></a></li>
-												<li><a class="flaticon-heart" href="shop-detail.html"></a></li>
-												<li><a class="flaticon-shopping-cart-2" href="shop-detail.html"></a></li>
-											</ul>
-										</div>
-									</div>
-									<div class="lower-content">
-										<div class="rating">
-											<span class="fa fa-star"></span>
-											<span class="fa fa-star"></span>
-											<span class="fa fa-star"></span>
-											<span class="fa fa-star"></span>
-											<span class="light fa fa-star"></span>
-										</div>
-										<h6><a href="shop-detail.html">masks 95 percent 0.3-μm <br> particles</a></h6>
-										<div class="d-flex justify-content-between align-items-center">
-											<div class="price"><span>$239.52</span> $362.00</div>
-											<!-- Quantity Box -->
-											<div class="quantity-box">
-												<div class="item-quantity">
-													<input class="qty-spinner" type="text" value="1" name="quantity">
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-							
-							<!-- Shop Item -->
-							<div class="shop-item col-lg-4 col-md-4 col-sm-12">
-								<div class="inner-box">
-									<div class="image">
-										<a href="shop-detail.html"><img src="{% static 'images/imagessait/resource/products/3.png' %}" alt="" /></a>
-										<div class="options-box">
-											<ul class="option-list">
-												<li><a class="flaticon-resize" href="shop-detail.html"></a></li>
-												<li><a class="flaticon-heart" href="shop-detail.html"></a></li>
-												<li><a class="flaticon-shopping-cart-2" href="shop-detail.html"></a></li>
-											</ul>
-										</div>
-									</div>
-									<div class="lower-content">
-										<div class="rating">
-											<span class="fa fa-star"></span>
-											<span class="fa fa-star"></span>
-											<span class="fa fa-star"></span>
-											<span class="fa fa-star"></span>
-											<span class="light fa fa-star"></span>
-										</div>
-										<h6><a href="shop-detail.html">masks 95 percent 0.3-μm <br> particles</a></h6>
-										<div class="d-flex justify-content-between align-items-center">
-											<div class="price"><span>$239.52</span> $362.00</div>
-											<!-- Quantity Box -->
-											<div class="quantity-box">
-												<div class="item-quantity">
-													<input class="qty-spinner" type="text" value="1" name="quantity">
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-							
-							<!-- Shop Item -->
-							<div class="shop-item col-lg-4 col-md-4 col-sm-12">
-								<div class="inner-box">
-									<div class="image">
-										<a href="shop-detail.html"><img src="images/resource/products/1.png" alt="" /></a>
-										<div class="options-box">
-											<ul class="option-list">
-												<li><a class="flaticon-resize" href="shop-detail.html"></a></li>
-												<li><a class="flaticon-heart" href="shop-detail.html"></a></li>
-												<li><a class="flaticon-shopping-cart-2" href="shop-detail.html"></a></li>
-											</ul>
-										</div>
-									</div>
-									<div class="lower-content">
-										<div class="rating">
-											<span class="fa fa-star"></span>
-											<span class="fa fa-star"></span>
-											<span class="fa fa-star"></span>
-											<span class="fa fa-star"></span>
-											<span class="light fa fa-star"></span>
-										</div>
-										<h6><a href="shop-detail.html">masks 95 percent 0.3-μm <br> particles</a></h6>
-										<div class="d-flex justify-content-between align-items-center">
-											<div class="price"><span>$239.52</span> $362.00</div>
-											<!-- Quantity Box -->
-											<div class="quantity-box">
-												<div class="item-quantity">
-													<input class="qty-spinner" type="text" value="1" name="quantity">
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-							
-							<!-- Shop Item -->
-							<div class="shop-item col-lg-4 col-md-4 col-sm-12">
-								<div class="inner-box">
-									<div class="image">
-										<a href="shop-detail.html"><img src="images/resource/products/2.png" alt="" /></a>
-										<div class="options-box">
-											<ul class="option-list">
-												<li><a class="flaticon-resize" href="shop-detail.html"></a></li>
-												<li><a class="flaticon-heart" href="shop-detail.html"></a></li>
-												<li><a class="flaticon-shopping-cart-2" href="shop-detail.html"></a></li>
-											</ul>
-										</div>
-									</div>
-									<div class="lower-content">
-										<div class="rating">
-											<span class="fa fa-star"></span>
-											<span class="fa fa-star"></span>
-											<span class="fa fa-star"></span>
-											<span class="fa fa-star"></span>
-											<span class="light fa fa-star"></span>
-										</div>
-										<h6><a href="shop-detail.html">masks 95 percent 0.3-μm <br> particles</a></h6>
-										<div class="d-flex justify-content-between align-items-center">
-											<div class="price"><span>$239.52</span> $362.00</div>
-											<!-- Quantity Box -->
-											<div class="quantity-box">
-												<div class="item-quantity">
-													<input class="qty-spinner" type="text" value="1" name="quantity">
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-							<!-- Shop Item -->
-							<div class="shop-item col-lg-4 col-md-4 col-sm-12">
-								<div class="inner-box">
-									<div class="image">
-										<a href="shop-detail.html"><img src="images/resource/products/3.png" alt="" /></a>
-										<div class="options-box">
-											<ul class="option-list">
-												<li><a class="flaticon-resize" href="shop-detail.html"></a></li>
-												<li><a class="flaticon-heart" href="shop-detail.html"></a></li>
-												<li><a class="flaticon-shopping-cart-2" href="shop-detail.html"></a></li>
-											</ul>
-										</div>
-									</div>
-									<div class="lower-content">
-										<div class="rating">
-											<span class="fa fa-star"></span>
-											<span class="fa fa-star"></span>
-											<span class="fa fa-star"></span>
-											<span class="fa fa-star"></span>
-											<span class="light fa fa-star"></span>
-										</div>
-										<h6><a href="shop-detail.html">masks 95 percent 0.3-μm <br> particles</a></h6>
-										<div class="d-flex justify-content-between align-items-center">
-											<div class="price"><span>$239.52</span> $362.00</div>
-											<!-- Quantity Box -->
-											<div class="quantity-box">
-												<div class="item-quantity">
-													<input class="qty-spinner" type="text" value="1" name="quantity">
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
 
-							<!-- Shop Item -->
-							<div class="shop-item col-lg-4 col-md-4 col-sm-12">
-								<div class="inner-box">
-									<div class="image">
-										<a href="shop-detail.html"><img src="images/resource/products/1.png" alt="" /></a>
-										<div class="options-box">
-											<ul class="option-list">
-												<li><a class="flaticon-resize" href="shop-detail.html"></a></li>
-												<li><a class="flaticon-heart" href="shop-detail.html"></a></li>
-												<li><a class="flaticon-shopping-cart-2" href="shop-detail.html"></a></li>
-											</ul>
-										</div>
-									</div>
-									<div class="lower-content">
-										<div class="rating">
-											<span class="fa fa-star"></span>
-											<span class="fa fa-star"></span>
-											<span class="fa fa-star"></span>
-											<span class="fa fa-star"></span>
-											<span class="light fa fa-star"></span>
-										</div>
-										<h6><a href="shop-detail.html">masks 95 percent 0.3-μm <br> particles</a></h6>
-										<div class="d-flex justify-content-between align-items-center">
-											<div class="price"><span>$239.52</span> $362.00</div>
-											<!-- Quantity Box -->
-											<div class="quantity-box">
-												<div class="item-quantity">
-													<input class="qty-spinner" type="text" value="1" name="quantity">
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-							
-							<!-- Shop Item -->
-							<div class="shop-item col-lg-4 col-md-4 col-sm-12">
-								<div class="inner-box">
-									<div class="image">
-										<a href="shop-detail.html"><img src="images/resource/products/2.png" alt="" /></a>
-										<div class="options-box">
-											<ul class="option-list">
-												<li><a class="flaticon-resize" href="shop-detail.html"></a></li>
-												<li><a class="flaticon-heart" href="shop-detail.html"></a></li>
-												<li><a class="flaticon-shopping-cart-2" href="shop-detail.html"></a></li>
-											</ul>
-										</div>
-									</div>
-									<div class="lower-content">
-										<div class="rating">
-											<span class="fa fa-star"></span>
-											<span class="fa fa-star"></span>
-											<span class="fa fa-star"></span>
-											<span class="fa fa-star"></span>
-											<span class="light fa fa-star"></span>
-										</div>
-										<h6><a href="shop-detail.html">masks 95 percent 0.3-μm <br> particles</a></h6>
-										<div class="d-flex justify-content-between align-items-center">
-											<div class="price"><span>$239.52</span> $362.00</div>
-											<!-- Quantity Box -->
-											<div class="quantity-box">
-												<div class="item-quantity">
-													<input class="qty-spinner" type="text" value="1" name="quantity">
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-							
-							<!-- Shop Item -->
-							<div class="shop-item col-lg-4 col-md-4 col-sm-12">
-								<div class="inner-box">
-									<div class="image">
-										<a href="shop-detail.html"><img src="images/resource/products/3.png" alt="" /></a>
-										<div class="options-box">
-											<ul class="option-list">
-												<li><a class="flaticon-resize" href="shop-detail.html"></a></li>
-												<li><a class="flaticon-heart" href="shop-detail.html"></a></li>
-												<li><a class="flaticon-shopping-cart-2" href="shop-detail.html"></a></li>
-											</ul>
-										</div>
-									</div>
-									<div class="lower-content">
-										<div class="rating">
-											<span class="fa fa-star"></span>
-											<span class="fa fa-star"></span>
-											<span class="fa fa-star"></span>
-											<span class="fa fa-star"></span>
-											<span class="light fa fa-star"></span>
-										</div>
-										<h6><a href="shop-detail.html">masks 95 percent 0.3-μm <br> particles</a></h6>
-										<div class="d-flex justify-content-between align-items-center">
-											<div class="price"><span>$239.52</span> $362.00</div>
-											<!-- Quantity Box -->
-											<div class="quantity-box">
-												<div class="item-quantity">
-													<input class="qty-spinner" type="text" value="1" name="quantity">
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-							
-							<!-- Shop Item -->
-							<div class="shop-item col-lg-4 col-md-4 col-sm-12">
-								<div class="inner-box">
-									<div class="image">
-										<a href="shop-detail.html"><img src="images/resource/products/1.png" alt="" /></a>
-										<div class="options-box">
-											<ul class="option-list">
-												<li><a class="flaticon-resize" href="shop-detail.html"></a></li>
-												<li><a class="flaticon-heart" href="shop-detail.html"></a></li>
-												<li><a class="flaticon-shopping-cart-2" href="shop-detail.html"></a></li>
-											</ul>
-										</div>
-									</div>
-									<div class="lower-content">
-										<div class="rating">
-											<span class="fa fa-star"></span>
-											<span class="fa fa-star"></span>
-											<span class="fa fa-star"></span>
-											<span class="fa fa-star"></span>
-											<span class="light fa fa-star"></span>
-										</div>
-										<h6><a href="shop-detail.html">masks 95 percent 0.3-μm <br> particles</a></h6>
-										<div class="d-flex justify-content-between align-items-center">
-											<div class="price"><span>$239.52</span> $362.00</div>
-											<!-- Quantity Box -->
-											<div class="quantity-box">
-												<div class="item-quantity">
-													<input class="qty-spinner" type="text" value="1" name="quantity">
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
+                        </div>
 
-							<!-- Shop Item -->
-							<div class="shop-item col-lg-4 col-md-4 col-sm-12">
-								<div class="inner-box">
-									<div class="image">
-										<a href="shop-detail.html"><img src="images/resource/products/2.png" alt="" /></a>
-										<div class="options-box">
-											<ul class="option-list">
-												<li><a class="flaticon-resize" href="shop-detail.html"></a></li>
-												<li><a class="flaticon-heart" href="shop-detail.html"></a></li>
-												<li><a class="flaticon-shopping-cart-2" href="shop-detail.html"></a></li>
-											</ul>
-										</div>
-									</div>
-									<div class="lower-content">
-										<div class="rating">
-											<span class="fa fa-star"></span>
-											<span class="fa fa-star"></span>
-											<span class="fa fa-star"></span>
-											<span class="fa fa-star"></span>
-											<span class="light fa fa-star"></span>
-										</div>
-										<h6><a href="shop-detail.html">masks 95 percent 0.3-μm <br> particles</a></h6>
-										<div class="d-flex justify-content-between align-items-center">
-											<div class="price"><span>$239.52</span> $362.00</div>
-											<!-- Quantity Box -->
-											<div class="quantity-box">
-												<div class="item-quantity">
-													<input class="qty-spinner" type="text" value="1" name="quantity">
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-							
-							<!-- Shop Item -->
-							<div class="shop-item col-lg-4 col-md-4 col-sm-12">
-								<div class="inner-box">
-									<div class="image">
-										<a href="shop-detail.html"><img src="images/resource/products/3.png" alt="" /></a>
-										<div class="options-box">
-											<ul class="option-list">
-												<li><a class="flaticon-resize" href="shop-detail.html"></a></li>
-												<li><a class="flaticon-heart" href="shop-detail.html"></a></li>
-												<li><a class="flaticon-shopping-cart-2" href="shop-detail.html"></a></li>
-											</ul>
-										</div>
-									</div>
-									<div class="lower-content">
-										<div class="rating">
-											<span class="fa fa-star"></span>
-											<span class="fa fa-star"></span>
-											<span class="fa fa-star"></span>
-											<span class="fa fa-star"></span>
-											<span class="light fa fa-star"></span>
-										</div>
-										<h6><a href="shop-detail.html">masks 95 percent 0.3-μm <br> particles</a></h6>
-										<div class="d-flex justify-content-between align-items-center">
-											<div class="price"><span>$239.52</span> $362.00</div>
-											<!-- Quantity Box -->
-											<div class="quantity-box">
-												<div class="item-quantity">
-													<input class="qty-spinner" type="text" value="1" name="quantity">
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-							
-						</div>
-					
 						<!-- Styled Pagination -->
 						<ul class="styled-pagination text-center">
 							<li class="next"><a href="#"><span class="fa fa-angle-double-left"></span></a></li>
@@ -502,19 +127,10 @@
 								</div>
 								<!-- Category List -->
 								<ul class="category-list">
+									{% teg_categories as categories %}
 									{% for category in categories %}
-									<li><a href="#">{{category.name}}</a></li>
+									<li><a href="#">{{category.name}}<span>(колличество)</span></a></li>
 									{% endfor %}
-									<li><a href="#">Accessories <span>(8)</span></a></li>
-									<li><a href="#">Air Filter <span>(5)</span></a></li>
-									<li><a href="#">Body Engine <span>(5)</span></a></li>
-									<li><a href="#">Brake Parts names <span>(7)</span></a></li>
-									<li><a href="#">Computer <span>(1)</span></a></li>
-									<li><a href="#">Cosmetics <span>(6)</span></a></li>
-									<li><a href="#">Covid-19 <span>(2)</span></a></li>
-									<li><a href="#">Electornics <span>(8)</span></a></li>
-									<li><a href="#">Frame Sunglasses <span>(10)</span></a></li>
-									<li><a href="#">Furniture <span>(7)</span></a></li>
 								</ul>
 								
 							</div>
@@ -525,7 +141,7 @@
 							<div class="widget-content">
 								<!-- Sidebar Title -->
 								<div class="sidebar-title">
-									<h6>Colors</h6>
+									<h6>Tile</h6>
 								</div>
 								<div class="sel-colors">
 									<div class="color-box"><input type="radio" name="colors" checked id="color-one"><label style="background-color:#c4c4c4;" for="color-one"></label></div>
@@ -543,55 +159,23 @@
 							<div class="widget-content">
 								<!-- Sidebar Title -->
 								<div class="sidebar-title">
-									<h6>brands</h6>
+									<h6>Line</h6>
 								</div>
 								
 								<!-- Brands List -->
 								<div class="brands-list">
 									<form method="post" action="contact.html">
-										
+
+										{% for Lines in line %}
 										<div class="form-group">
 											<div class="check-box">
 												<input type="checkbox" name="remember-password" id="type-1">
-												<label for="type-1">Samsung</label>
+												<label for="type-1">{{Lines.name}}</label>
 											</div>
 										</div>
-										
-										<div class="form-group">
-											<div class="check-box">
-												<input type="checkbox" name="remember-password" id="type-2">
-												<label for="type-2">Oppo</label>
-											</div>
-										</div>
-										
-										<div class="form-group">
-											<div class="check-box">
-												<input type="checkbox" name="remember-password" id="type-3">
-												<label for="type-3">hewaui Galaxy</label>
-											</div>
-										</div>
-										
-										<div class="form-group">
-											<div class="check-box">
-												<input type="checkbox" name="remember-password" id="type-4">
-												<label for="type-4">Ryzen 3600</label>
-											</div>
-										</div>
-										
-										<div class="form-group">
-											<div class="check-box">
-												<input type="checkbox" name="remember-password" id="type-5">
-												<label for="type-5">intel</label>
-											</div>
-										</div>
-										
-										<div class="form-group">
-											<div class="check-box">
-												<input type="checkbox" name="remember-password" id="type-6">
-												<label for="type-6">Mobile Handset</label>
-											</div>
-										</div>
-										
+										{% endfor %}
+
+
 									</form>
 								</div>
 								
@@ -602,12 +186,12 @@
 						<div class="sidebar-widget trending-widget">
 							<div class="widget-content">
 								<div class="content">
-									<div class="vector-icon" style="background-image: url(images/icons/vector-3.png)"></div>
+									<div class="vector-icon" style="background-image: url({% static 'images/imagessait/icons/vector-3.png' %})></div>
 									<div class="title">Trending</div>
 									<h4>2022 <span>Laptop</span> <br> Collection</h4>
 									<a class="buy-btn theme-btn" href="#">Buy Now</a>
 									<div class="icon">
-										<img src="images/resource/lamp-4.png" alt="" />
+										<img src="{% static 'images/imagessait/resource/lamp-4.png' %}" alt="" />
 									</div>
 								</div>
 							</div>
@@ -621,14 +205,10 @@
 									<h6>Tags</h6>
 								</div>
 								<ul class="tag-list">
-									<li><a href="#">symphony</a></li>
-									<li><a href="#">nokia</a></li>
-									<li><a href="#">samsung</a></li>
-									<li><a href="#">Alcatel</a></li>
-									<li><a href="#">landing</a></li>
-									<li><a href="#">Oppos</a></li>
-									<li><a href="#">I phone Pro 12</a></li>
-									<li><a href="#">poco X3</a></li>
+									{% for Tegs in teg %}
+									<li><a href="#">{{Tegs.name}}</a></li>
+									{% endfor %}
+
 								</ul>
 							</div>
 						</div>
