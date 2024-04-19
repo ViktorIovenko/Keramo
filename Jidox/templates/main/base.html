@@ -1,4 +1,5 @@
 {% load static %}
+{% load goods_tags %}
 
 
 <head>
@@ -88,10 +89,12 @@
 								<ul class="navigation clearfix">
 									<li><a href="{% url 'main' %}">Home</a></li>
 									<li><a href="{% url 'main:about' %}">About</a></li>
-									<li><a href="{% url 'goods:shop' %}">Shop</a></li>
-									<li class="dropdown"><a href="{% url 'goods:shop' %}">Shop</a>
+                                    <li class="dropdown"><a href="">Shop</a>
 										<ul>
-											<li><a href="{% url 'goods:shop' %}">Our Products</a></li>
+											{% teg_categories as categories %}
+											{% for category in categories %}
+											<li><a href="{% url 'goods:shop' category.slug %}">{{category.name}}</a></li>
+											{% endfor %}
 											<li><a href="shop-detail.html">Product Single</a></li>
 											<li><a href="cart.html">Shoping Cart</a></li>
 											<li><a href="checkout.html">CheckOut</a></li>

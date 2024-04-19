@@ -1,6 +1,6 @@
 from django import template
 
-from goods.models import Categories, Teg, Tile, Line, Product
+from goods.models import Categories, Teg, Tile, Line, Products
 
 
 register = template.Library()

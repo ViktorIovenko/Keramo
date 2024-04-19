@@ -102,16 +102,25 @@
 
 						<!-- Styled Pagination -->
 						<ul class="styled-pagination text-center">
-							<li class="next"><a href="#"><span class="fa fa-angle-double-left"></span></a></li>
-							<li><a href="#" class="active">1</a></li>
-							<li><a href="#">2</a></li>
-							<li><a href="#">3</a></li>
-							<li class="next"><a href="#"><span class="fa fa-angle-double-right"></span></a></li>
+                            <li class="next {% if not goods.has_previous %}disabled{% endif %}">
+               				<a class="next" href="{% if goods.has_previous %}?page={{goods.previous_page_number}}
+
+                            {% endif %}"><span class="fa fa-angle-double-left"></span></a></li>
+
+							{% for page in goods.paginator.page_range %}
+               				{% if page >= goods.number|add:-2 and page <= goods.number|add:2 %}
+							<li><a href="?page={{page}}" class="active">{{ page }}</a></li>
+							{% endif %}
+							{% endfor %}
+
+
+							<li class="next {% if not goods.has_next %}disabled{% endif %}">
+               				<a class="next" href="{% if goods.has_next %}
+               				?page={{goods.next_page_number}}
+               				{% endif %}"><span class="fa fa-angle-double-right"></span></a></li>
 						</ul>
-						<!-- End Styled Pagination -->
-					
-					</div>
-					
+
+				<div>
 				</div>
 				
 				<!-- Sidebar Side -->
@@ -129,7 +138,7 @@
 								<ul class="category-list">
 									{% teg_categories as categories %}
 									{% for category in categories %}
-									<li><a href="#">{{category.name}}<span>(колличество)</span></a></li>
+									<li><a href="{% url 'goods:shop' category.slug %}">{{category.name}}<span>(колличество)</span></a></li>
 									{% endfor %}
 								</ul>
 								
