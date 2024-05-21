@@ -350,6 +350,24 @@
 			</div>
 		</div>
 	</section>
+
+
+
+<section class="gallery-section">
+    <div class="outer-container">
+        <div class="instagram-carousel owl-carousel owl-theme">
+            {% for image_url in image_urls %}
+            <div class="insta-gallery">
+                <img src="{{ image_url }}" alt="" />
+                <div class="overlay-box">
+                    <div class="overlay-inner">
+                        <a class="lightbox-image icon flaticon-instagram" href="{{ image_url }}"></a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
 	<!-- End Gallery Section -->
        	<!-- Main Footer -->
     <footer class="main-footer">

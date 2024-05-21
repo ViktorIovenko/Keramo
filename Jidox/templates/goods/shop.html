@@ -4,8 +4,7 @@
 {% block title %}{{title}}{% endblock title %}
 {% block content %}
 
-
-	<!-- Page Title -->
+<!-- Page Title -->
     <section class="page-title">
         <div class="auto-container">
 			<h2>Shop Page</h2>
@@ -32,17 +31,49 @@
 							<div class="left-box d-flex align-items-center">
 								<div class="results">Showing 1–12 of 54 results</div>
 							</div>
-							<!-- Right Box -->
+							<!-- Right Box / ФИЛЬТРАЦИЯ -->
 							<div class="right-box d-flex">
-								<div class="form-group">
-									<select name="currency" class="custom-select-box">
-										<option>Recently Added</option>
-										<option>Added 01</option>
-										<option>Added 02</option>
-										<option>Added 03</option>
-										<option>Added 04</option>
-									</select>
+							<div class="dropdown mb-2">
+							<button class="btn btn-secondary dropdown-toggle btn-dark text-black" type="button" data-bs-toggle="dropdown"
+								aria-expanded="false" style="background-color: transparent; border-color: transparent; color: black;">
+								Filters
+							</button>
+
+							<form action="" method="get" class="dropdown-menu bg-light" data-bs-theme="light" style="width: 200px;">
+                                <div class="form-check text-black mx-3">
+									<input class="form-check-input" type="checkbox" name="on_sale" id="flexCheckDefault" value="on" {% if request.GET.on_sale == 'on' %}checked{% endif %}>
+									{% if request.GET.q %}
+										<input type="hidden" name="q" value="{{ request.GET.q }}">
+									{% endif %}
+									<label class="form-check-label" for="flexCheckDefault">
+										Products on sale
+									</label>
 								</div>
+								<p class="text-black mx-3 mt-3">Sort by:</p>
+								<div class="form-check text-black mx-3">
+									<input class="form-check-input" type="radio" name="order_by" id="flexRadioDefault1" value="default"
+									{% if not request.GET.order_by or request.GET.order_by == 'default' %}checked{% endif %}>
+									<label class="form-check-label" for="flexRadioDefault1">
+										Newest
+									</label>
+								</div>
+								<div class="form-check text-black mx-3">
+									<input class="form-check-input" type="radio" name="order_by" id="flexRadioDefault2" value="price"
+									{% if request.GET.order_by == 'price' %}checked{% endif %}>
+									<label class="form-check-label" for="flexRadioDefault2">
+										Price: Low to High
+									</label>
+								</div>
+								<div class="form-check text-black mx-3">
+									<input class="form-check-input" type="radio" name="order_by" id="flexRadioDefault3" value="-price"
+									{% if request.GET.order_by == '-price' %}checked{% endif %}>
+									<label class="form-check-label" for="flexRadioDefault3">
+										Price: High to Low
+									</label>
+								</div>
+								<button type="submit" class="btn btn-primary mx-3 mt-3" style="background-color: black; border-color: transparent; white: ;">Apply</button>
+							</form>
+						</div>
 								<ul class="pages-list">
 									<li><a class="flaticon-list" href="#"></a></li>
 									<li><a class="flaticon-menu-2" href="#"></a></li>
@@ -103,24 +134,23 @@
 						<!-- Styled Pagination -->
 						<ul class="styled-pagination text-center">
                             <li class="next {% if not goods.has_previous %}disabled{% endif %}">
-               				<a class="next" href="{% if goods.has_previous %}?page={{goods.previous_page_number}}
-
-                            {% endif %}"><span class="fa fa-angle-double-left"></span></a></li>
+               				<a class="next" href="{% if goods.has_previous %}?{% change_params page=goods.previous_page_number %}{% else %}#{% endif %}"><span class="fa fa-angle-double-left"></span></a></li>
 
 							{% for page in goods.paginator.page_range %}
                				{% if page >= goods.number|add:-2 and page <= goods.number|add:2 %}
-							<li><a href="?page={{page}}" class="active">{{ page }}</a></li>
+							<li class="page-item {% if goods.number == page %} active {% endif %}">
+                        	<a class="page-link" href="?{% change_params page=page %}">{{ page }}</a>
+                    		</li>
 							{% endif %}
 							{% endfor %}
 
 
 							<li class="next {% if not goods.has_next %}disabled{% endif %}">
-               				<a class="next" href="{% if goods.has_next %}
-               				?page={{goods.next_page_number}}
-               				{% endif %}"><span class="fa fa-angle-double-right"></span></a></li>
+               				<a class="next" href="{% if goods.has_next %}?{% change_params page=goods.next_page_number %}{% else %}{% endif %}"><span class="fa fa-angle-double-right"></span></a></li>
 						</ul>
 
-				<div>
+					</div>
+
 				</div>
 				
 				<!-- Sidebar Side -->
@@ -196,7 +226,7 @@
 							<div class="widget-content">
 								<div class="content">
 									<div class="vector-icon" style="background-image: url({% static 'images/imagessait/icons/vector-3.png' %})></div>
-									<div class="title">Trending</div>
+										<div class="title">Trending</div>
 									<h4>2022 <span>Laptop</span> <br> Collection</h4>
 									<a class="buy-btn theme-btn" href="#">Buy Now</a>
 									<div class="icon">

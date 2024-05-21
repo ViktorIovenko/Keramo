@@ -1,5 +1,6 @@
 {% load static %}
 
+
 /* Bloxic Furniture Business HTML Template
 
 
@@ -9,7 +10,57 @@
 	font-family: 'Josefin Sans', sans-serif;
 	font-family: 'Roboto', sans-serif;
 	font-family: 'Space Grotesk', sans-serif;
-*/
+
+
+/* style.css */
+
+/* Global styles */
+@import url('/static/css/csssait/global.css');
+
+/* Header styles */
+@import url('/static/css/csssait/header.css');
+
+/* Footer styles */
+@import url('/static/css/csssait/footer.css');
+
+/* Icofont styles */
+@import url('/static/css/csssait/icofont.css');
+
+/* Font Awesome styles */
+@import url('/static/css/csssait/font-awesome.css');
+
+/* Flaticon styles */
+@import url('/static/css/csssait/flaticon.css');
+
+/* Animate styles */
+@import url('/static/css/csssait/animate.css');
+
+/* Owl styles */
+@import url('/static/css/csssait/owl.css');
+
+/* Swiper styles */
+@import url('/static/css/csssait/swiper.css');
+
+/* jQuery UI styles */
+@import url('/static/css/csssait/jquery-ui.css');
+
+/* Preloader styles */
+@import url('/static/css/csssait/preloader.css');
+
+/* Custom animate styles */
+@import url('/static/css/csssait/custom-animate.css');
+
+/* Magnific Popup styles */
+@import url('/static/css/csssait/magnific-popup.css');
+
+/* jQuery Bootstrap Touchspin styles */
+@import url('/static/css/csssait/jquery.bootstrap-touchspin.css');
+
+/* Odometer theme default styles */
+@import url('/static/css/csssait/odometer-theme-default.css');
+
+/* jQuery mCustomScrollbar styles */
+@import url('/static/css/csssait/jquery.mCustomScrollbar.min.css');
 
 
 
