@@ -18,6 +18,49 @@ from django.contrib import admin
 from django.urls import path, include
 from jidox.view import index_view
 from django.conf.urls.static import static
+from django.conf import settings
+from main import views as main_views
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+
+    # Главная страница
+    path('', main_views.index, name='main'),
+
+    # Маршруты приложения main
+    path('', include('main.urls')),
+
+    # Маршруты приложения goods
+    path('shop/', include('goods.urls')),
+
+    # Dashboard
+    path('adminpanel', index_view, name='index'),
+
+    # App
+    path('apps/', include('apps.urls')),
+
+    # Custom
+    path('custom/', include('custom.urls')),
+
+    # Layouts
+    path('layouts/', include('layouts.urls')),
+
+    # Components
+    path('components/', include('components.urls')),
+
+    # Accounts
+    path('accounts/', include('allauth.urls')),
+]
+
+if settings.DEBUG:
+    urlpatterns += [
+                       path('__debug__/', include('debug_toolbar.urls')),
+                   ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+"""from django.contrib import admin
+from django.urls import path, include
+from jidox.view import index_view
+from django.conf.urls.static import static
 from main import views
 from jidox import settings
 
@@ -50,4 +93,4 @@ if settings.DEBUG:
     urlpatterns += [
         path("__debug__/", include("debug_toolbar.urls")),
     ]
-    urlpatterns +=static(settings.MEDIA_URL,document_root = settings.MEDIA_ROOT)
+    urlpatterns +=static(settings.MEDIA_URL,document_root = settings.MEDIA_ROOT)"""
