@@ -30,6 +30,9 @@ urlpatterns = [
     # Маршруты приложения main
     path('', include('main.urls')),
 
+    # Маршруты приложения user
+    path('user/', include('users.urls')),
+
     # Маршруты приложения goods
     path('shop/', include('goods.urls')),
 

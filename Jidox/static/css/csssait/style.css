@@ -7525,7 +7525,10 @@
 }
 
 .styled-form{
-	position:relative;	
+	position:relative;
+
+
+
 }
 
 .styled-form .submit-text{
@@ -10170,4 +10173,24 @@
 	font-size:var(--font-15);
 	color:var(--color-seventyone);
 	margin-top:var(--margin-top-5);
+}
+
+.social-login {
+    text-align: left;
+    margin-top: 0px;
+}
+
+.social-login p {
+    margin-bottom: 10px;
+}
+
+.social-icon {
+    font-size: 24px;
+    margin: 0 10px;
+    color: #333;
+    transition: color 0.3s;
+}
+
+.social-icon:hover {
+    color: #007bff; /* Цвет при наведении */
 }
