@@ -1,9 +1,8 @@
 {% extends "main/base.html" %}
 {% load static %}
-{% load goods_tags %}
+{% load socialaccount %}
 {% block title %}{{title}}{% endblock title %}
 {% block content %}
-	
 	<!-- Page Title -->
     <section class="page-title">
         <div class="auto-container">
@@ -16,8 +15,6 @@
         </div>
     </section>
     <!-- End Page Title -->
-	
-
 <!-- Register Section -->
 <div class="register-section">
     <div class="auto-container">
@@ -43,9 +40,9 @@
                             <div class="form-group">
                                 <div class="social-login">
                                     <p>Or login with:</p>
-                                    <a href="#" class="social-icon"><i class="fab fa-google"></i></a>
-                                    <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
-                                    <a href="#" class="social-icon"><i class="fab fa-apple"></i></a>
+                                    <a href="{% provider_login_url 'google' %}" class="social-icon"><i class="fab fa-google"></i></a>
+                                    <a href="{% provider_login_url 'facebook' %}" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                                    <a href="{% provider_login_url 'apple' %}" class="social-icon"><i class="fab fa-apple"></i></a>
                                 </div>
                             </div>
                         </form>
@@ -71,9 +68,9 @@
                             <div class="form-group">
                                 <div class="social-login">
                                     <p>Or sign up with:</p>
-                                    <a href="#" class="social-icon"><i class="fab fa-google"></i></a>
-                                    <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
-                                    <a href="#" class="social-icon"><i class="fab fa-apple"></i></a>
+                                    <a href="{% provider_login_url 'google' %}" class="social-icon"><i class="fab fa-google"></i></a>
+                                    <a href="{% provider_login_url 'facebook' %}" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                                    <a href="{% provider_login_url 'apple' %}" class="social-icon"><i class="fab fa-apple"></i></a>
                                 </div>
                             </div>
                         </form>
@@ -84,7 +81,4 @@
     </div>
 </div>
 <!-- End Register Section -->
-
-
-	
 {% endblock content %}

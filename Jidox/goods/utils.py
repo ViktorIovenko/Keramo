@@ -13,10 +13,10 @@ def q_search(query):
         return Products.objects.filter(id=int(query))
 
     vector = SearchVector("model", "description", "line")
-    query = SearchQuery(query)
+    search_query = SearchQuery(query)
 
     result = (
-        Products.objects.annotate(rank=SearchRank(vector, query))
+        Products.objects.annotate(rank=SearchRank(vector, search_query))
         .filter(rank__gt=0)
         .order_by("-rank")
     )
@@ -24,7 +24,7 @@ def q_search(query):
     result = result.annotate(
         headline=SearchHeadline(
             "model",
-            query,
+            search_query,
             start_sel='<span style="background-color: yellow;">',
             stop_sel="</span>",
         )
@@ -32,7 +32,7 @@ def q_search(query):
     result = result.annotate(
         bodyline=SearchHeadline(
             "description",
-            query,
+            search_query,
             start_sel='<span style="background-color: yellow;">',
             stop_sel="</span>",
         )

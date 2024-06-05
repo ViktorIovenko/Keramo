@@ -28,7 +28,7 @@ def register(request):
                 if user is not None:
                     login(request, user)
                     logger.info("New user registered and logged in: %s", user.username)
-                    return redirect('home')  # Замените 'home' на вашу главную страницу или другую
+                    return redirect('main')  # Замените 'home' на вашу главную страницу или другую
                 else:
                     logger.error("Authentication failed for user: %s", username)
             else:
@@ -42,7 +42,7 @@ def register(request):
                 if user is not None:
                     login(request, user)
                     logger.info("User logged in: %s", user.username)
-                    return redirect('home')  # Замените 'home' на вашу главную страницу или другую
+                    return redirect('main')  # Замените 'home' на вашу главную страницу или другую
                 else:
                     logger.error("Authentication failed for user: %s", username)
             else:
